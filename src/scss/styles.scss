@@ -1,0 +1,55 @@
+@import "_variable";
+@import "_mixins";
+@import "_buttons";
+body {
+  background: black;
+}
+
+h2 {
+  font-size: $title;
+  color: $bg;
+}
+
+.box {
+  margin-top: 20px;
+  &:hover {
+    background-color: green;
+  }
+  h2 {
+    color: brown;
+    &:hover {
+      color: red;
+    }
+  }
+  button {
+    color: aqua;
+  }
+}
+
+a {
+  margin-bottom: 10px;
+  &:nth-child(odd) {
+    @include link("odd");
+  }
+  &:nth-child(even) {
+    @include link("even");
+  }
+}
+.extend {
+  @extend %button;
+}
+button {
+  @extend %button;
+}
+
+.mixins {
+  @include responsive("iphone") {
+    color: yellow;
+  }
+  @include responsive("iphone-l") {
+    font-size: 60px;
+  }
+  @include responsive("tablet") {
+    color: green;
+  }
+}
